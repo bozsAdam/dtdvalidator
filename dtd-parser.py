@@ -26,15 +26,8 @@ def main(argv):
         elif opt in ("-d", "--dtdfile"):
             dtd_file = arg
 
-    print("dtd : " + dtd_file)
-    print("xml : " + xml_file)
-
     with open(dtd_file) as file:
         dtd_from_file = file.read()
-
-    print("------------------------------------")
-    print(dtd_from_file)
-    print("------------------------------------")
 
     with open(xml_file) as file:
         xml_from_file = file.read()
@@ -42,7 +35,18 @@ def main(argv):
     dtd = etree.DTD(StringIO(dtd_from_file))
     isValid = dtd.validate(etree.XML(xml_from_file))
 
-    print(isValid)
+    if(not isValid):
+        with open("not_valid.txt") as file:
+            not_valid_art = file.read();
+
+        print("-------------------------------")
+        print(not_valid_art)
+        print("cause:")
+        print(dtd.error_log.filter_from_errors()[0])
+        print("-------------------------------")
+    else:
+        with open("valid.txt") as file:
+            print(file.read())
 
 
 if __name__ == "__main__":
