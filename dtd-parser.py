@@ -37,8 +37,9 @@ def main(argv):
 
     if(not isValid):
         print("-----------NOT VALID-----------")
-        print("cause:")
-        print(dtd.error_log.filter_from_errors()[0])
+        for error in dtd.error_log:
+            print("ERROR:" + error.message)
+            print("in line: " + str(error.line))
         print("-------------------------------")
     else:
         print("XML IS VALID")
