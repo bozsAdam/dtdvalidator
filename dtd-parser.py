@@ -36,17 +36,12 @@ def main(argv):
     isValid = dtd.validate(etree.XML(xml_from_file))
 
     if(not isValid):
-        with open("not_valid.txt") as file:
-            not_valid_art = file.read();
-
-        print("-------------------------------")
-        print(not_valid_art)
+        print("-----------NOT VALID-----------")
         print("cause:")
         print(dtd.error_log.filter_from_errors()[0])
         print("-------------------------------")
     else:
-        with open("valid.txt") as file:
-            print(file.read())
+        print("XML IS VALID")
 
 
 if __name__ == "__main__":
