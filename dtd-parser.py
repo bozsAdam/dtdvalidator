@@ -11,15 +11,15 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "x:d:", ["xmlfile=", "dtdfile="])
     except getopt.GetoptError:
-        print('test.py -x <xmlfile> -d <dtdfile>')
+        print('dtd-parser.py -x <xmlfile> -d <dtdfile>')
         print("--------------OR-----------------")
-        print('test.py -x <xmlfile> -d <dtdfile>')
+        print('dtd-parser.py -xmlfile <xmlfile> -dtdfile <dtdfile>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('test.py -x <xmlfile> -d <dtdfile>')
+            print('dtd-parser.py -x <xmlfile> -d <dtdfile>')
             print("--------------OR-----------------")
-            print('test.py --xmlfile <xmlfile> --dtdfile <dtdfile>')
+            print('dtd-parser.py --xmlfile <xmlfile> --dtdfile <dtdfile>')
             sys.exit()
         elif opt in ("-x", "--xmlfile"):
             xml_file = arg
