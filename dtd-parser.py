@@ -41,8 +41,10 @@ def main(argv):
             print("ERROR:" + error.message)
             print("in line: " + str(error.line))
         print("-------------------------------")
+        exit(1)
     else:
         print("XML IS VALID")
+        exit(0)
 
 
 if __name__ == "__main__":
